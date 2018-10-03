@@ -74,7 +74,7 @@ class Address(UnicodeProperty):
             return self.bank_account
 
     def _get_address_lines(self):
-        address_line = [self.summary]
+        address_line = []
         if self.division:
             address_line.append(self.division)
         address_line += [
@@ -236,13 +236,13 @@ class Invoice(UnicodeProperty):
     #: due date
     payback = None
     #:  taxable date
-    taxable_date = None
+    taxable_date = None  # always False, silenced the other module
     #: currency_locale: locale according to which will be the written currency representations
-    currency_locale = "cs_CZ.UTF-8"
+    currency_locale = "en_US.UTF-8"
     #: currency identifier (e.g. "$" or "Kč")
-    currency = u"Kč"
+    currency = u"$"
 
-    use_tax = False
+    use_tax = False  # always False, silenced the other module
 
     #: round result to integers?
     rounding_result = False
